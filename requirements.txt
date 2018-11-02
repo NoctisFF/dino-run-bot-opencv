@@ -1,0 +1,6 @@
+numpy
+opencv-python
+selenium
+pynput
+pillow
+pywin32gui *optional
