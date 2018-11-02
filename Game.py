@@ -56,7 +56,7 @@ while(True):
     if time.time() - start_time >= max_speed:
         duck_time = 0.06
 
-    screen = np.array(ImageGrab.grab(bbox=(25,135,480,320)))
+    screen = np.array(ImageGrab.grab(bbox=(25,135,490,320)))
     screen_gray = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
 
     for dino in dino_traces:
@@ -95,7 +95,7 @@ while(True):
 
             cv2.rectangle(screen, cactus_tr, (cactus_tr[0] + w_cactus, cactus_tr[1] + h_cactus), (0, 0, 255), 1)
 
-    cv2.moveWindow('image', 15, 330)
+    cv2.moveWindow('image', 16, 330)
     cv2.imshow('image', screen)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
