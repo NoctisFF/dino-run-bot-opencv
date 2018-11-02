@@ -3,4 +3,4 @@ opencv-python
 selenium
 pynput
 pillow
-pywin32gui *optional
+pywin32gui
