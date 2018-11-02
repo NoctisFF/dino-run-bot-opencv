@@ -8,33 +8,33 @@ from pynput.keyboard import Key, Controller
 from PIL import ImageGrab
 from win32gui import GetWindowText, GetForegroundWindow
 
+home = os.path.dirname(os.path.abspath(__file__))
 start_time = time.time()
 sec = time.time()
+ducking = time.time()
 max_speed = 116
 jump_dist = 70
 duck_time = 0.1
 velocity_coeff = 2.5
 match_threshold = 0.8
-is_duck = False
-ducking = time.time()
-home = os.path.dirname(os.path.abspath(__file__))
 ptero_height = 110
+is_duck = False
 global dino_trace_x
 
 dino_traces = []
-files = glob.glob(home + '\Dino*.jpg')
+files = glob.glob(home + '\Object_screenshots\Dino*.jpg')
 for file in files:
     temp = cv2.imread(file, 0)
     dino_traces.append(temp)
 
 cactus_traces = []
-files = glob.glob(home + '\Cactus*.jpg')
+files = glob.glob(home + '\Object_screenshots\Cactus*.jpg')
 for file in files:
     temp = cv2.imread(file, 0)
     cactus_traces.append(temp)
 
 ptero_traces = []
-files = glob.glob(home + '\Ptero*.jpg')
+files = glob.glob(home + '\Object_screenshots\Ptero*.jpg')
 for file in files:
     temp = cv2.imread(file, 0)
     ptero_traces.append(temp)
@@ -95,6 +95,7 @@ while(True):
 
             cv2.rectangle(screen, cactus_tr, (cactus_tr[0] + w_cactus, cactus_tr[1] + h_cactus), (0, 0, 255), 1)
 
+    cv2.moveWindow('image', 15, 330)
     cv2.imshow('image', screen)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         cv2.destroyAllWindows()
